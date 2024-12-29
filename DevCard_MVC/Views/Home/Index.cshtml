@@ -1,5 +1,4 @@
-﻿@model IndexModel
-@{
+﻿@{
     ViewData["Title"] = "ارتباط با من";
 }
 
@@ -33,7 +32,8 @@
     <div class="container">
         <h2 class="section-title font-weight-bold mb-5">خاص ترین پروژه ها</h2>
         <div class="row">
-            @await Html.PartialAsync("_Projects")
+            @*Loading view component*@
+            @await Component.InvokeAsync("Projects")
         </div>
     </div>
 </section>
@@ -46,7 +46,8 @@
     <div class="container">
         <h2 class="section-title font-weight-bold mb-5">آخرین مقالات</h2>
         <div class="row">
-            @await Html.PartialAsync("_Articles")
+            @*Loading view component*@
+            @await Component.InvokeAsync("LatestArticles")
         </div>
     </div>
 </section>
