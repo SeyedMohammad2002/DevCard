@@ -27,9 +27,16 @@ namespace DevCard_MVC.Controllers
         //    return Json(Ok()); // Ok() is a helper method that returns a 200 OK status code
         //}
         [HttpPost]
-        public JsonResult Contact(Contact form)
+        public IActionResult Contact(Contact model)
         {
-            return Json(Ok());
+            if (ModelState.IsValid == false)
+            {
+                ViewBag.error = "اطلاعات وارد شده صحیح نمی باشد";
+                return View("Contact", model);
+            }
+
+            ViewBag.success = "اطلاعات با موفقیت ثبت شد";
+            return View("Contact");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
